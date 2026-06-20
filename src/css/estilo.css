@@ -321,4 +321,31 @@ footer p {
         line-height: 1.25;
         max-width: calc(100% - 56px);
     }
+
+
+    .tabela-plantios,
+    .tabela-plantios tbody,
+    .tabela-plantios tr,
+    .tabela-plantios td {
+        display: block;
+        width: 100%;
+    }
+    .tabela-plantios thead {
+        display: none;
+    }
+    .tabela-plantios tr {
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--borda);
+    }
+    .tabela-plantios tr:last-child {
+        border-bottom: none;
+    }
+    .tabela-plantios td {
+        padding: 4px 0;
+        border-bottom: none;
+    }
+    .tabela-plantios td.text-end {
+        text-align: left;
+        margin-top: 8px;
+    }
 }
