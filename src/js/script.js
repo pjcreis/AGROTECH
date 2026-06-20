@@ -24,17 +24,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const contadorMensagem = document.querySelector("#contador-mensagem");
         
         function atualizarContadorMensagem() {
-          if (!mensagemInput || !contadorMensagem) return;
+            if (!mensagemInput || !contadorMensagem) return;
         
-          const totalCaracteres = mensagemInput.value.length;
-          contadorMensagem.textContent = `${totalCaracteres}/500 caracteres`;
+            const totalCaracteres = mensagemInput.value.length;
+            contadorMensagem.textContent = `${totalCaracteres}/500 caracteres`;
         
-          if (totalCaracteres >= 450) {
-            contadorMensagem.classList.add("fw-semibold");
-          } else {
-            contadorMensagem.classList.remove("fw-semibold");
-          }
+            if (totalCaracteres >= 450) {
+                contadorMensagem.classList.add("fw-semibold");
+            } else {
+                contadorMensagem.classList.remove("fw-semibold");
+            }
         }
+
+if (mensagemInput && contadorMensagem) {
+    mensagemInput.addEventListener("input", atualizarContadorMensagem);
+    atualizarContadorMensagem();
+}
 
 if (mensagemInput && contadorMensagem) {
   mensagemInput.addEventListener("input", atualizarContadorMensagem);
