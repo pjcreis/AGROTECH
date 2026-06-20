@@ -20,6 +20,27 @@ document.addEventListener("DOMContentLoaded", function () {
         const nomeFeedback = nomeInput.parentElement.querySelector(".invalid-feedback");
         const feedbackPadraoNome = nomeFeedback.textContent;
 
+        const mensagemInput = document.querySelector("#mensagem");
+        const contadorMensagem = document.querySelector("#contador-mensagem");
+        
+        function atualizarContadorMensagem() {
+          if (!mensagemInput || !contadorMensagem) return;
+        
+          const totalCaracteres = mensagemInput.value.length;
+          contadorMensagem.textContent = `${totalCaracteres}/500 caracteres`;
+        
+          if (totalCaracteres >= 450) {
+            contadorMensagem.classList.add("fw-semibold");
+          } else {
+            contadorMensagem.classList.remove("fw-semibold");
+          }
+        }
+
+if (mensagemInput && contadorMensagem) {
+  mensagemInput.addEventListener("input", atualizarContadorMensagem);
+  atualizarContadorMensagem();
+}
+
         function validarNomeCompleto() {
           const valor = nomeInput.value.trim();
           const partes = valor.split(/\s+/).filter(Boolean);
@@ -67,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
 
             form.reset();
+            atualizarContadorMensagem();
             form.classList.remove("was-validated");
         });
     }
