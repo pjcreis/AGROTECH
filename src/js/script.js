@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ============================
-    // Toast (feedback no canto)
-    // ============================
     function toast(msg) {
         const tc = document.querySelector("#toast-container");
         if (!tc) return;
@@ -15,9 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 2500);
     }
 
-    // ============================
-    // Formulário Fale Conosco
-    // ============================
     const form = document.querySelector("#form-contato");
     const resposta = document.querySelector("#resposta-formulario");
 
@@ -78,9 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ============================
-    // Painel de plantios
-    // ============================
     const listaPlantios = document.querySelector("#lista-plantios");
     const botaoAdicionarPlantio = document.querySelector("#botao-adicionar-plantio");
     const botaoSimularDias = document.querySelector("#botao-simular");
