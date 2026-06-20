@@ -41,11 +41,6 @@ if (mensagemInput && contadorMensagem) {
     atualizarContadorMensagem();
 }
 
-if (mensagemInput && contadorMensagem) {
-  mensagemInput.addEventListener("input", atualizarContadorMensagem);
-  atualizarContadorMensagem();
-}
-
         function validarNomeCompleto() {
           const valor = nomeInput.value.trim();
           const partes = valor.split(/\s+/).filter(Boolean);
