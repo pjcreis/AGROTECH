@@ -22,7 +22,6 @@ body {
     color: var(--text);
 }
 
-/* Tipografia serif sutil (inspiração Aurora) */
 .serif {
     font-family: 'DM Serif Display', serif;
     font-weight: 400;
@@ -143,10 +142,6 @@ footer p {
     margin: 0;
     opacity: 0.9;
 }
-
-/* ─────────────────────────────────
-   PAINEL (inspirado no Aurora)
-   ───────────────────────────────── */
 
 .stat-card {
     background: var(--surface);
@@ -319,5 +314,11 @@ footer p {
     .tabela-plantios th,
     .tabela-plantios td {
         padding: 10px 14px;
+    }
+    .navbar-brand {
+        font-size: 0.95rem;
+        white-space: normal;
+        line-height: 1.25;
+        max-width: calc(100% - 56px);
     }
 }
