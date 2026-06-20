@@ -21,26 +21,25 @@ document.addEventListener("DOMContentLoaded", function () {
         const feedbackPadraoNome = nomeFeedback.textContent;
 
         function validarNomeCompleto() {
-            const valor = nomeInput.value.trim();
-            const partes = valor.split(/\s+/).filter(function (parte) {
-                return parte.length > 0;
-            });
-
-            if (partes.length < 2) {
-                nomeInput.setCustomValidity("nome-incompleto");
-                nomeFeedback.textContent = "Informe seu nome e sobrenome.";
-                return false;
-            }
-
-            if (partes[0].length < 2 || partes[partes.length - 1].length < 2) {
-                nomeInput.setCustomValidity("nome-curto");
-                nomeFeedback.textContent = "Nome e sobrenome devem ter ao menos 2 letras cada.";
-                return false;
-            }
-
-            nomeInput.setCustomValidity("");
-            nomeFeedback.textContent = feedbackPadraoNome;
-            return true;
+          const valor = nomeInput.value.trim();
+          const partes = valor.split(/\s+/).filter(Boolean);
+          const regexNome = /^[A-Za-zÀ-ÿ]{2,}$/;
+        
+          if (partes.length < 2) {
+            nomeInput.setCustomValidity("nome-incompleto");
+            nomeFeedback.textContent = "Informe seu nome e sobrenome.";
+            return false;
+          }
+        
+          if (!regexNome.test(partes[0]) || !regexNome.test(partes[partes.length - 1])) {
+            nomeInput.setCustomValidity("nome-invalido");
+            nomeFeedback.textContent = "Nome e sobrenome devem conter apenas letras e ter ao menos 2 letras cada.";
+            return false;
+          }
+        
+          nomeInput.setCustomValidity("");
+          nomeFeedback.textContent = feedbackPadraoNome;
+          return true;
         }
 
         nomeInput.addEventListener("input", validarNomeCompleto);
